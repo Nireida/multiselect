@@ -8,12 +8,14 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MultyElementComponent } from './multy-element/multy-element.component';
 import {FormsModule} from "@angular/forms";
 import { SelectedElementsComponent } from './selected-elements/selected-elements.component';
+import { ElementsPipe } from './elements.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MultyElementComponent,
-    SelectedElementsComponent
+    SelectedElementsComponent,
+    ElementsPipe
   ],
   imports: [
     BrowserModule,

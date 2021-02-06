@@ -56,3 +56,10 @@ input[type=checkbox]:checked:after {
   padding: -5px;
   font-weight: bold;
 }
+
+.multi-element__folder input[type=checkbox]:checked:after {
+  content: " - ";
+  display: flex;
+  justify-content: center;
+  padding: 0 2px 0 1px;
+}

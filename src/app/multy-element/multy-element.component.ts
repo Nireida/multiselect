@@ -1,4 +1,12 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -19,18 +27,37 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ])
   ]
 })
-export class MultyElementComponent {
+export class MultyElementComponent implements OnChanges {
   @Input() node;
   @Output() valueChange = new EventEmitter();
+  isAllSelected = false;
 
   constructor(
     public cdr: ChangeDetectorRef
   ) {
   }
 
-  selectValue = (element) => (this.valueChange.emit(element));
+  ngOnChanges() {
+    this.isAllSelected = this.node.childrenCount && this.getIfAllIsChecked(this.node);
+  }
 
-  changeLeafOpen(){
+  getIfAllIsChecked(node) {
+    if (node.children.filter(el => el.value).length !== node.childrenCount) {
+      return true;
+    } else {
+      for (let el of node.children) {
+        if (el.childrenCount) {
+        return  this.getIfAllIsChecked(el);
+        }
+      }
+    }
+  }
+
+  selectValue(element) {
+    this.valueChange.emit(element);
+  }
+
+  changeLeafOpen() {
     this.node.isClosed = !this.node.isClosed;
     this.cdr.markForCheck();
   }

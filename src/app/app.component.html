@@ -1,13 +1,18 @@
 <div *ngIf="(data$ | async) as data else spinner"
      class="app__container">
-  <div class="app__tree">
-    <div class="app__title">Выбрано {{selectedArr.length}} элемента</div>
-    <app-multy-element *ngFor="let node of data"
-                       [node]="node"
-                       (valueChange)="selectValue($event)"></app-multy-element>
-  </div>
-  <app-selected-elements [selectedElements]="selectedArr"
-                         (selectedElementsChange)="deleteElements($event, data)"></app-selected-elements>
+  <ng-container *ngIf="data !== 'error' else error">
+    <div class="app__tree">
+      <div class="app__title">Выбрано {{selectedArr.length | elements}}</div>
+      <div class="app__tree-container">
+        <app-multy-element *ngFor="let node of data"
+                           [node]="node"
+                           (valueChange)="selectValue($event, data)"></app-multy-element>
+      </div>
+    </div>
+    <app-selected-elements [selectedElements]="selectedArr"
+                           (selectedElementsChange)="deleteElements($event, data)"></app-selected-elements>
+
+  </ng-container>
 </div>
 
 <ng-template #spinner>
@@ -16,4 +21,8 @@
     <span class="spinner-inner-2"></span>
     <span class="spinner-inner-3"></span>
   </div>
+</ng-template>
+
+<ng-template #error>
+  <h2 class="error">Произошла ошибка загрузки страницы... : (</h2>
 </ng-template>
