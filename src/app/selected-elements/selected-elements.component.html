@@ -1,0 +1,8 @@
+<div class="selected-elements__container">
+  <div *ngFor="let data of selectedElements"
+       class="selected-elements__data"
+       (click)="deleteData(data)">
+    <span>{{data.title}}</span>
+    <span>&#10006;</span>
+  </div>
+</div>

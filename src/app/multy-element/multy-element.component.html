@@ -1,0 +1,23 @@
+<div class="multi-element__data">
+  <div class="multi-element__container">
+    <ng-container  *ngIf="!node.isLeaf else span">
+      <div class="multi-element__arrow"
+           [@changeOpen]="node.isClosed"
+           (click)="changeLeafOpen()"> &#9660; </div>
+    </ng-container>
+      <input type="checkbox" name="test" id="test"
+             [(ngModel)]="node.value"
+             (ngModelChange)="selectValue(node)"/>
+      <span></span>
+    <div class="multi-element__myinput">{{node.title}}</div>
+  </div>
+  <ng-container *ngIf="!node.isLeaf && !node.isClosed">
+    <app-multy-element *ngFor="let child of node.children"
+                       [node]="child"
+                       (valueChange)="selectValue($event)"></app-multy-element>
+  </ng-container>
+</div>
+
+<ng-template #span>
+  <span></span>
+</ng-template>
