@@ -1,0 +1,12 @@
+.zorro {
+  &__container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  &__delete {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+}

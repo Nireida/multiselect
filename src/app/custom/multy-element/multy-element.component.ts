@@ -47,7 +47,7 @@ export class MultyElementComponent implements OnChanges {
     } else {
       for (let el of node.children) {
         if (el.childrenCount) {
-        return  this.getIfAllIsChecked(el);
+        return this.getIfAllIsChecked(el);
         }
       }
     }

@@ -1,0 +1,32 @@
+.custom {
+  &__header {
+    margin: 30px 40px 0;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 40px;
+    margin: 40px;
+    background-color: aliceblue;
+    border-radius: 40px;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__tree {
+    overflow: auto;
+  }
+
+  &__tree-container {
+    height: 800px;
+    padding: 20px;
+    margin: 20px 20px 0 0;
+    overflow: auto;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+}

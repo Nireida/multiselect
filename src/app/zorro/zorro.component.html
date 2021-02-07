@@ -1,0 +1,33 @@
+<h1>Реализация с помощью библиотеки ngZorro</h1>
+
+<ng-container *ngIf="nodes && !loading else spinner">
+  <div class="zorro__title">Выбрано {{checkedKeys.length | elements}}</div>
+  <div class="zorro__container">
+    <nz-tree #nzTreeComponent
+             nzCheckable
+             nzMultiple
+             nzExpandAll
+             [nzCheckedKeys]="checkedKeys"
+             [nzSelectMode]="false"
+             [nzData]="nodes"
+             (nzCheckBoxChange)="checkedKeys = [];
+             fillCheckedKeys(nzTreeComponent.getTreeNodes())">
+    </nz-tree>
+    <div>
+      <p *ngFor="let item of checkedKeys let index = index"
+         class="zorro__delete"
+         (click)="deleteIndex(index)">
+        {{item | keyName}}
+        <span>&#10006;</span>
+      </p>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #spinner>
+  <app-spinner *ngIf="loading else errorPage"></app-spinner>
+</ng-template>
+
+<ng-template #errorPage>
+  <app-error-page></app-error-page>
+</ng-template>
