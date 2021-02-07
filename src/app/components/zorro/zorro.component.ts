@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, ViewChild} from '@angular/core';
 import {NzTreeComponent} from "ng-zorro-antd";
-import {AppService} from "../app.service";
+import {AppService} from "../../app.service";
 import {Subscription} from "rxjs";
 
 @Component({

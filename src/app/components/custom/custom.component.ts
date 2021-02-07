@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {of} from "rxjs";
 import {map, tap} from "rxjs/operators";
-import {AppService} from "../app.service";
+import {AppService} from "../../app.service";
 
 @Component({
   selector: 'app-custom',

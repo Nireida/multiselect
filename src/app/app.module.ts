@@ -2,22 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { MultyElementComponent } from './custom/multy-element/multy-element.component';
+import { MultyElementComponent } from './components/custom/multy-element/multy-element.component';
 import {FormsModule} from "@angular/forms";
-import { SelectedElementsComponent } from './custom/selected-elements/selected-elements.component';
-import { ElementsPipe } from './elements.pipe';
-import {CustomComponent} from "./custom/custom.component";
-import { ZorroComponent } from './zorro/zorro.component';
-import { StartComponent } from './start/start.component';
+import { SelectedElementsComponent } from './components/custom/selected-elements/selected-elements.component';
+import { ElementsPipe } from './pipes/elements.pipe';
+import {CustomComponent} from "./components/custom/custom.component";
+import { ZorroComponent } from './components/zorro/zorro.component';
+import { StartComponent } from './components/start/start.component';
 import {NgZorroAntdModule, NZ_I18N, en_US, NzTreeModule} from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import {KeyNamePipe} from "./key-name.pipe";
-import { ErrorPageComponent } from './error-page/error-page.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+import {KeyNamePipe} from "./pipes/key-name.pipe";
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 registerLocaleData(en);
 

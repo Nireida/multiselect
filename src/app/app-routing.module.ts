@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {CustomComponent} from "./custom/custom.component";
-import {ZorroComponent} from "./zorro/zorro.component";
-import {StartComponent} from "./start/start.component";
-import {AppComponent} from "./app.component";
+import {CustomComponent} from "./components/custom/custom.component";
+import {ZorroComponent} from "./components/zorro/zorro.component";
+import {StartComponent} from "./components/start/start.component";
+import {AppComponent} from "./components/app.component";
 
 
 const routes: Routes = [  {
